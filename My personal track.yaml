@@ -8,10 +8,10 @@ packages:
   - 'gnome-shell-extension-appindicator'
   - 'gnome-initial-setup'
   - 'filesystem-blend'
+  - 'cursor'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
-- 'cursor'
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml"  -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/stoken-gui.desktop'
@@ -22,7 +22,7 @@ commands:
   - 'rm -f /usr/share/applications/electron*.desktop'
   - 'rm -f /usr/share/applications/avahi-discover.desktop'
   - 'rm -f /usr/share/applications/bssh.desktop'
-  - "sudo pacman -Rns --noconfirm gnome-contacts gnome-clocks gnome-weather simple-scan gnome-maps totem evince sushi gnome-characters gnome-connections gnome-font-viewer gnome-logs gnome-music gnome-calendar waydroid waydroid-image gnome-user-docs yelp"
+  - "sudo pacman -Rns --noconfirm cups gnome-contacts gnome-clocks gnome-weather simple-scan gnome-maps totem evince sushi gnome-characters gnome-connections gnome-font-viewer gnome-logs gnome-music gnome-calendar waydroid waydroid-image gnome-user-docs yelp"
   - "sudo useradd -r -s /sbin/nologin libvirt-qemu"
   - "sudo usermod -aG kvm libvirt-qemu"
   - "sudo groupadd libvirt"
