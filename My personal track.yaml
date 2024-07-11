@@ -11,7 +11,7 @@ packages:
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
-- 'vscode-bin'
+- 'visual-studio-code-bin'
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml"  -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/stoken-gui.desktop'
