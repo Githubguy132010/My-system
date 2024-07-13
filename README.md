@@ -49,7 +49,7 @@ The `packages` section lists the packages that need to be installed from the Ble
 - **nautilus**: GNOME file manager.
 - **orca**: Screen reader.
 - **rygel**: DLNA/UPnP media server.
-- **snapshot**: Not specified, could be related to system snapshots.
+- **snapshot**: Camera app.
 - **tecla**: Not specified.
 - **tracker3-miners**: Metadata database, indexer, and search tool.
 - **xdg-desktop-portal-gnome**: GNOME backend for xdg-desktop-portal.
