@@ -68,7 +68,7 @@ commands:
   - "sudo usermod -aG kvm libvirt-qemu"
   - "sudo groupadd libvirt"
   - "sudo usermod -aG libvirt libvirt-qemu"
-
+  - "sudo pacman -S fastfetch"
 services:
   - 'gdm'
   - 'libvirtd'
