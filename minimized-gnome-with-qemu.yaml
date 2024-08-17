@@ -70,7 +70,6 @@ commands:
   - "sudo usermod -aG libvirt libvirt-qemu"
   - "echo 'unix_sock_group = \"libvirt\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
   - "echo 'unix_sock_rw_perms = \"0770\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
-  - "sudo pacman -S --noconfirm fastfetch"
 
 services:
   - 'gdm'
