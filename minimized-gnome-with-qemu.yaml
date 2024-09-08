@@ -49,7 +49,7 @@ packages:
   - 'gnome-shell-extension-blur-my-shell'
   - 'gnome-shell-extension-appindicator'
   - 'gnome-initial-setup'
-
+  - 'fwupd'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
