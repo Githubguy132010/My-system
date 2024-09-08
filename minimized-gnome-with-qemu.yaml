@@ -69,7 +69,7 @@ commands:
   - "sudo groupadd libvirt"
   - "sudo usermod -aG libvirt libvirt-qemu"
   - "wget https://github.com/Githubguy132010/My-system/blob/main/qemu-helper.sh
-  - "sudo ./qemu-helper.sh"
+  - "sh qemu-helper.sh"
   - "sudo rm -rf qemu-helper.sh"
   - "echo 'unix_sock_group = \"libvirt\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
   - "echo 'unix_sock_rw_perms = \"0770\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
