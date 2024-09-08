@@ -50,6 +50,7 @@ packages:
   - 'gnome-shell-extension-appindicator'
   - 'gnome-initial-setup'
   - 'fwupd'
+  - 'gparted'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
