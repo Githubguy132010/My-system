@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Get Akshara
-        run: wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara-system-update.service?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.hook?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.install?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.service?ref_type=heads&inline=false
+        run: wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara?ref_type=heads&inline=false akshara && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara-system-update.service?ref_type=heads&inline=false akshara-system-update.service  && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.hook?ref_type=heads&inline=false akshara.hook &&  wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.install?ref_type=heads&inline=false akshara.install && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.service?ref_type=heads&inline=false akshara.service
         
 
 
