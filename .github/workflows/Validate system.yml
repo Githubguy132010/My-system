@@ -8,8 +8,16 @@ on:
 
 jobs:
   validate-yaml:
-    runs-on: arch-latest
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: Get Distrobox
+        run: sudo apt update && sudo apt install distrobox -y
+
+      - uses: actions/checkout@v2
+      - name: Create Arch Distrobox
+        run: distrobox create --name arch --image quay.io/archlinux:latest && distrobox enter arch
+    
       - uses: actions/checkout@v2
       - name: Get YAML file
         run: wget https://github.com/Githubguy132010/My-system/blob/main/gnome.yaml
