@@ -52,6 +52,7 @@ packages:
   - 'fwupd'
   - 'gparted'
   - 'flatpak'
+  - 'waydroid'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
@@ -73,9 +74,7 @@ commands:
   - "echo 'unix_sock_group = \"libvirt\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
   - "echo 'unix_sock_rw_perms = \"0770\"' | sudo tee -a /etc/libvirt/libvirtd.conf"
   - "echo 'nl_NL.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen"
-  - "flatpak install flathub com.google.Chrome -y"
-  - "flatpak install flathub net.lutris.Lutris -y"
-  - "flatpak install flathub com.visualstudio.code -y"
+  - "sudo locale-gen"
 services:
   - 'gdm'
   - 'libvirtd'
