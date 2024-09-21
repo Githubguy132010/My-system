@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Validate YAML file
+      - name: Get YAML file
         run: wget https://github.com/Githubguy132010/My-system/blob/main/gnome.yaml
+
+      - uses: actions/checkout@v2
+      - name: Validate YAML file
         run: yamllint gnome.yaml
+        
