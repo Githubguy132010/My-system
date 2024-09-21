@@ -35,4 +35,4 @@ jobs:
         
       - uses: actions/checkout@v2
       - name: Run Akshara update
-        run: sudo ./akshara update
+        run: ./akshara update
