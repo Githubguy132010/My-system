@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Create Arch Distrobox
-        run: distrobox create --name arch --image quay.io/archlinux:latest && distrobox enter arch
+        run: distrobox create --name arch --image quay.io/archlinux:latest -y && distrobox enter arch
     
       - uses: actions/checkout@v2
       - name: Get YAML file
