@@ -8,13 +8,23 @@ on:
 
 jobs:
   validate-yaml:
-    runs-on: ubuntu-latest
+    runs-on: arch-latest
     steps:
       - uses: actions/checkout@v2
       - name: Get YAML file
         run: wget https://github.com/Githubguy132010/My-system/blob/main/gnome.yaml
 
       - uses: actions/checkout@v2
-      - name: Validate YAML file
-        run: yamllint gnome.yaml
+      - name: Get Akshara
+        run: wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara-system-update.service?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.hook?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.install?ref_type=heads&inline=false && wget https://git.blendos.co/blendOS/system-tools/akshara/-/raw/main/akshara.service?ref_type=heads&inline=false
         
+
+
+      - uses: actions/checkout@v2
+      - name: Prepare YAML file
+        run: sudo mv gnome.yaml /system.yaml
+
+        
+      - uses: actions/checkout@v2
+      - name: Run Akshara update
+        run: sudo ./akshara update
