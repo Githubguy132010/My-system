@@ -9,29 +9,34 @@ on:
 
 jobs:
   build:
-    runs-on: arch-latest
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest   # Use the official Arch Linux container
+      options: --privileged     # Run the container in privileged mode
 
     steps:
-      # Check out the repository
-      - uses: actions/checkout@v4
-
-      # Install archiso
-      - run: sudo pacman -S --noconfirm archiso
+      # Install archiso and other required packages
+      - name: Install Dependencies
+        run: |
+          pacman -Sy --noconfirm archiso grub git
 
       # Clone the custom ISO builder repository
-      - run: git clone https://github.com/Githubguy132010/BlendOS-custom-ISO-builder.git
+      - name: Clone ISO Builder Repo
+        run: git clone https://github.com/Githubguy132010/BlendOS-custom-ISO-builder.git
 
       # Change directory to the cloned repo and build the ISO
-      - run: |
+      - name: Build ISO
+        run: |
           cd BlendOS-custom-ISO-builder
-          sudo mkarchiso -v -w workdir/ -o out/ .
+          mkarchiso -v -w workdir/ -o out/ .
 
       # Move the ISO files to uploads directory
-      - run: mv BlendOS-custom-ISO-builder/out/*.iso uploads/
+      - name: Move ISO to Uploads
+        run: mv BlendOS-custom-ISO-builder/out/*.iso uploads/
 
       # Upload the built ISO as an artifact
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.2.1-node20
+      - name: Upload ISO Artifact
+        uses: actions/upload-artifact@v3.2.1
         with:
           name: blendos-iso
           path: uploads/*.iso
