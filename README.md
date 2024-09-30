@@ -1,6 +1,6 @@
 This is a custom BlendOS track customized to my liking.
 
-It adds virt-manager with all qemu platforms like arm64, x86-64 etc. It also removes everything except the utilities and console. So you only get the BARE minimum. Not even firefox is included. It also creates the needed groups for qemu to function properly. Waydroid is also stripped out. The GNOME desktop is kept ofc.
+It adds virt-manager with all qemu platforms like arm64, x86-64 etc. It also removes everything except the utilities and console. So you only get the BARE minimum. Not even firefox is included. It also creates the needed groups for qemu to function properly. The GNOME desktop is kept ofc.
 
 If you would like a more detailed explanation, here's a summary provided by ChatGPT:
 
