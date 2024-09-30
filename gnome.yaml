@@ -9,7 +9,7 @@ packages:
   - 'gdm'
   - 'gnome-backgrounds'
   - 'gnome-calculator'
-  - 'gnome-console'
+  - 'alacritty'
   - 'gnome-control-center'
   - 'gnome-disk-utility'
   - 'gnome-keyring'
@@ -53,6 +53,7 @@ packages:
   - 'gparted'
   - 'flatpak'
   - 'waydroid'
+  - 'waydroid-image'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
