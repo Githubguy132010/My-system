@@ -68,8 +68,9 @@ commands:
   - "sudo groupadd libvirt"
   - "sudo usermod -aG libvirt libvirt-qemu"
   - "sudo usermod -a -G libvirt $(whoami)"
-  - "echo 'nl_NL.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen"
+  - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
+  - "sudo pacman -Rns cups"
 services:
   - 'gdm'
   - 'libvirtd'
