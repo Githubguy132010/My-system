@@ -53,7 +53,9 @@ packages:
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
-- 'linutil-git'
+- 'linutil-bin'
+- 'google-chrome'
+- 'cursor'
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml"  -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/stoken-gui.desktop'
@@ -68,7 +70,7 @@ commands:
   - "sudo usermod -aG kvm libvirt-qemu"
   - "sudo groupadd libvirt"
   - "sudo usermod -aG libvirt libvirt-qemu"
-  - "sudo usermod -a -G libvirt $(whoami)"
+  - "sudo usermod -a -G libvirt thomasbrugman"
   - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
   - "sudo pacman --noconfirm -Rns cups"
