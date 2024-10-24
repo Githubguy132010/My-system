@@ -49,6 +49,7 @@ packages:
   - 'gnome-shell-extension-blur-my-shell'
   - 'gnome-shell-extension-appindicator'
   - 'flatpak'
+  - 'gnome-initial-setup'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
@@ -73,10 +74,6 @@ commands:
   - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
   - "sudo pacman --noconfirm -Rns cups"
-  - "git clone https://github.com/Githubguy132010/My-system-helper-scripts.git"
-  - "cd My-system-helper-scripts"
-  - "chmod +x ./setup.sh"
-  - "sudo ./setup.sh"
 services:
   - 'gdm'
   - 'libvirtd'
