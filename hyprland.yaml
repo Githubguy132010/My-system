@@ -1,0 +1,43 @@
+impl: 'https://github.com/blend-os/tracks/raw/main'
+
+track: 'blendos-base'
+
+packages:
+  - 'hyprland'
+  - 'kitty'
+  - 'flatpak'
+  - 'fastfetch'
+  - 'btop'
+  - 'htop'
+  - 'nano'
+  - 'git'
+  - 'zsh'
+  - 'zsh-syntax-highlighting'
+  - 'zsh-autosuggestions'
+  - 'fzf'
+  - 'sddm'
+  - 'networkmanager'
+
+aur-packages:
+  - 'qemu-full'
+  - 'virt-manager'
+  - 'linutil-bin'
+  - 'cursor-bin'
+
+commands:
+  - "if ! id 'libvirt-qemu' &>/dev/null; then sudo useradd -r -s /sbin/nologin libvirt-qemu; fi"
+  - "if ! groups libvirt-qemu | grep -q kvm; then sudo usermod -aG kvm libvirt-qemu; fi"
+  - "if ! getent group libvirt; then sudo groupadd libvirt; fi"
+  - "if ! groups libvirt-qemu | grep -q libvirt; then sudo usermod -aG libvirt libvirt-qemu; fi"
+  - "if ! groups thomasbrugman | grep -q libvirt; then sudo usermod -a -G libvirt thomasbrugman; fi"
+  - "sudo localectl set-locale nl_NL.UTF-8"
+  - "sudo locale-gen"
+  - "if ! id 'thomasbrugman' &>/dev/null; then sudo useradd -m -s /bin/bash thomasbrugman; fi"
+  - "if id 'thomasbrugman' &>/dev/null; then sudo passwd thomasbrugman; else echo 'User thomasbrugman does not exist.'; fi"
+
+
+services:
+  - 'libvirtd'
+  - 'libvirt-storaged'
+  - 'sddm'
+  - 'NetworkManager'
