@@ -23,18 +23,15 @@ aur-packages:
   - 'virt-manager'
   - 'linutil-bin'
   - 'cursor-bin'
-
+  - 'ml4w-hyprland-git'
 commands:
   - "if ! id 'libvirt-qemu' &>/dev/null; then sudo useradd -r -s /sbin/nologin libvirt-qemu; fi"
   - "if ! groups libvirt-qemu | grep -q kvm; then sudo usermod -aG kvm libvirt-qemu; fi"
   - "if ! getent group libvirt; then sudo groupadd libvirt; fi"
   - "if ! groups libvirt-qemu | grep -q libvirt; then sudo usermod -aG libvirt libvirt-qemu; fi"
-  - "if ! groups thomasbrugman | grep -q libvirt; then sudo usermod -a -G libvirt thomasbrugman; fi"
   - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
-  - "if ! id 'thomasbrugman' &>/dev/null; then sudo useradd -m -s /bin/bash thomasbrugman; fi"
-  - "if id 'thomasbrugman' &>/dev/null; then sudo passwd thomasbrugman; else echo 'User thomasbrugman does not exist.'; fi"
-
+  - 'ml4w-hyprland-setup'
 
 services:
   - 'libvirtd'
