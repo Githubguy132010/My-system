@@ -54,8 +54,6 @@ aur-packages:
 - 'qemu-full'
 - 'virt-manager'
 - 'linutil-bin'
-- 'google-chrome'
-- 'cursor-bin'
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml"  -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/stoken-gui.desktop'
@@ -66,6 +64,7 @@ commands:
   - 'rm -f /usr/share/applications/electron*.desktop'
   - 'rm -f /usr/share/applications/avahi-discover.desktop'
   - 'rm -f /usr/share/applications/bssh.desktop'
+  - 'rm -f /usr/share/applications/linutil.desktop'
   - "sudo useradd -r -s /sbin/nologin libvirt-qemu"
   - "sudo usermod -aG kvm libvirt-qemu"
   - "sudo groupadd libvirt"
