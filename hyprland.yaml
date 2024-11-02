@@ -2,28 +2,34 @@ impl: 'https://github.com/blend-os/tracks/raw/main'
 
 track: 'blendos-base'
 
-packages:
-  - 'hyprland'
-  - 'kitty'
-  - 'flatpak'
-  - 'fastfetch'
-  - 'btop'
-  - 'htop'
-  - 'nano'
-  - 'git'
-  - 'zsh'
-  - 'zsh-syntax-highlighting'
-  - 'zsh-autosuggestions'
-  - 'fzf'
-  - 'sddm'
-  - 'networkmanager'
-
 aur-packages:
   - 'qemu-full'
   - 'virt-manager'
   - 'linutil-bin'
   - 'cursor-bin'
-  - 'ml4w-hyprland-git'
+  - 'hyprland'
+  - 'wlogout'
+  - 'waypaper'
+  - 'waybar'
+  - 'swww'
+  - 'rofi'
+  - 'swaync'
+  - 'nemo'
+  - 'kitty'
+  - 'pavucontrol'
+  - 'gtk3'
+  - 'gtk2'
+  - 'xcur2png'
+  - 'gsettings-qt'
+  - 'nwg-look'
+  - 'fastfetch'
+  - 'zsh'
+  - 'oh-my-zsh-git'
+  - 'hyprshot'
+  - 'networkmanager'
+  - 'networkmanager-qt'
+  - 'nm-connection-editor'
+
 commands:
   - "if ! id 'libvirt-qemu' &>/dev/null; then sudo useradd -r -s /sbin/nologin libvirt-qemu; fi"
   - "if ! groups libvirt-qemu | grep -q kvm; then sudo usermod -aG kvm libvirt-qemu; fi"
@@ -31,7 +37,10 @@ commands:
   - "if ! groups libvirt-qemu | grep -q libvirt; then sudo usermod -aG libvirt libvirt-qemu; fi"
   - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
-  - 'ml4w-hyprland-setup'
+  - "git clone https://github.com/PilkDrinker/PilkDots"
+  - "cd PilkDots"
+  - "sudo chmod +x ./install.sh"
+  - "./install.sh"
 
 services:
   - 'libvirtd'
