@@ -2,6 +2,8 @@ impl: 'https://github.com/blend-os/tracks/raw/main'
 
 track: 'blendos-base'
 
+packages: 'paru'
+
 aur-packages:
   - 'qemu-full'
   - 'virt-manager'
