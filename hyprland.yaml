@@ -4,7 +4,6 @@ track: 'blendos-base'
 
 packages: 
   - 'paru'
-  - 'yay'
   - 'pacman'
 aur-packages:
   - 'qemu-full'
