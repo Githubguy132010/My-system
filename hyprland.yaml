@@ -17,7 +17,7 @@ commands:
   - "if ! groups libvirt-qemu | grep -q libvirt; then sudo usermod -aG libvirt libvirt-qemu; fi"
   - "sudo localectl set-locale nl_NL.UTF-8"
   - "sudo locale-gen"
-  - "git clone https://github.com/linkfrg/dotfiles.git --depth 1 --branch main
+  - "git clone https://github.com/linkfrg/dotfiles.git --depth 1 --branch main"
   - "cd dotfiles"
   - "mkdir -p ~/.local/share/themes"
   - "cp -R .config/* ~/.config/"
