@@ -11,29 +11,18 @@ aur-packages:
   - 'networkmanager'
 
 commands:
-  # Add 'libvirt-qemu' user if it doesn't exist
   - "if ! id 'libvirt-qemu' &>/dev/null; then sudo useradd -r -s /sbin/nologin libvirt-qemu; fi"
-  # Add 'libvirt-qemu' to 'kvm' group if not already a member
   - "if ! groups libvirt-qemu | grep -q kvm; then sudo usermod -aG kvm libvirt-qemu; fi"
-  # Create 'libvirt' group if it doesn't exist
   - "if ! getent group libvirt; then sudo groupadd libvirt; fi"
-  # Add 'libvirt-qemu' to 'libvirt' group if not already a member
   - "if ! groups libvirt-qemu | grep -q libvirt; then sudo usermod -aG libvirt libvirt-qemu; fi"
-  # Set system locale
   - "sudo localectl set-locale nl_NL.UTF-8"
-  # Generate locales
   - "sudo locale-gen"
-  # Clone dotfiles repository
   - "git clone https://github.com/linkfrg/dotfiles.git --depth 1 --branch main"
-  # Navigate to dotfiles directory
   - "cd dotfiles"
-  # Create themes directory if it doesn't exist
   - "mkdir -p ~/.local/share/themes"
-  # Copy configuration files
   - "cp -R .config/* ~/.config/"
   - "cp -R ignis ~/.config/"
   - "cp -R Material ~/.local/share/themes"
-  # Install packages from dependencies.txt
   - "paru -S --needed - < dependencies.txt"
 
 services:
