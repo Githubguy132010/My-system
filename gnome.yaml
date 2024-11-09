@@ -50,7 +50,6 @@ packages:
   - 'gnome-initial-setup'
   - 'waydroid'
   - 'gnome-software'
-  - 'gnome-shell-extension-just-perfection'
 aur-packages:
 - 'qemu-full'
 - 'virt-manager'
