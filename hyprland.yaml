@@ -44,8 +44,6 @@ packages:
   - 'xdg-desktop-portal-gnome'
   - 'xdg-user-dirs-gtk'
   - 'hyprland'
-  - 'wlogout'
-  - 'waypaper'
   - 'waybar'
   - 'swww'
   - 'rofi'
@@ -56,7 +54,6 @@ packages:
   - 'gtk3'
   - 'gtk2'
   - 'xcur2png'
-  - 'gsettings'
   - 'nwg-look'
   - 'fastfetch'
   - 'zsh'
@@ -72,7 +69,9 @@ aur-packages:
   - 'power-profiles-daemon'
   - 'oh-my-zsh-git'
   - 'hyprshot'
-
+  - 'wlogout'
+  - 'waypaper'
+  - 'gsettings'
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop}'
