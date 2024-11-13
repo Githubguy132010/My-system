@@ -1,3 +1,5 @@
+# blendos-config.yaml
+
 impl: 'https://github.com/blend-os/tracks/raw/main'
 track: 'blendos-base'
 
@@ -71,18 +73,26 @@ aur-packages:
   - 'hyprshot'
   - 'wlogout'
   - 'waypaper'
-  - 'gsettings'
+  - 'gsettings-desktop-schemas'
+
 commands:
-  - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
-  - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop}'
+  - 'sudo find /usr/share/metainfo \
+      ! -name "org.freedesktop.appstream.cli.metainfo.xml" \
+      ! -name "org.freedesktop.appstream.compose.metainfo.xml" \
+      ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" \
+      ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" \
+      -type f -exec rm -f {} +'
+  - 'sudo rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop}'
   - 'sudo groupadd -f libvirt'
-  - 'sudo useradd -r -s /sbin/nologin libvirt-qemu 2>/dev/null || true'
+  - 'sudo useradd -r -s /usr/bin/nologin libvirt-qemu 2>/dev/null || true'
   - 'sudo usermod -aG kvm,libvirt libvirt-qemu'
   - 'sudo usermod -aG libvirt "$(whoami)"'
   - 'sudo localectl set-locale LANG=nl_NL.UTF-8'
   - 'sudo locale-gen'
-  - 'mkdir fonts && cd fonts'
-  - "curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest | egrep -o '/ryanoasis/nerd-fonts/releases/download/.+\\.zip' | sed 's|^|https://github.com|' | wget -i /dev/fd/0"
+  - 'mkdir -p fonts && cd fonts'
+  - 'curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest \
+      | grep -oP "/ryanoasis/nerd-fonts/releases/download/[^\"]+\.zip" \
+      | sed "s|^|https://github.com|" | wget -i -'
   - 'unzip "*.zip" -d ~/.local/share/fonts'
   - 'fc-cache -fv'
   - 'cd .. && rm -rf fonts'
