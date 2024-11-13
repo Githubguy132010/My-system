@@ -62,7 +62,8 @@ packages:
   - 'networkmanager'
   - 'networkmanager-qt'
   - 'nm-connection-editor'
-
+  - 'ttf-nerd-fonts-symbols'
+  - 'ttf-nerd-fonts'
 aur-packages:
   - 'qemu-full'
   - 'virt-manager'
@@ -89,14 +90,12 @@ commands:
   - 'sudo usermod -aG libvirt "$(whoami)"'
   - 'sudo localectl set-locale LANG=nl_NL.UTF-8'
   - 'sudo locale-gen'
-  - 'mkdir -p fonts && cd fonts'
-  - 'curl -sL https://github.com/ryanoasis/nerd-fonts/releases/latest \
-      | grep -oP "/ryanoasis/nerd-fonts/releases/download/[^\"]+\.zip" \
-      | sed "s|^|https://github.com|" | wget -i -'
-  - 'unzip "*.zip" -d ~/.local/share/fonts'
-  - 'fc-cache -fv'
-  - 'cd .. && rm -rf fonts'
-
+  - 'git clone https://github.com/PilkDrinker/PilkDots.git'
+  - 'cd PilkDots'
+  - 'cp .config ~/.config'
+  - 'cp .zshrc ~/.zshrc'
+  - 'cp .themes ~/.themes'
+  - 'cp wallpaper ~/wallpaper'
 services:
   - 'gdm'
   - 'libvirtd'
