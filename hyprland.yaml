@@ -62,8 +62,6 @@ packages:
   - 'networkmanager'
   - 'networkmanager-qt'
   - 'nm-connection-editor'
-  - 'ttf-nerd-fonts-symbols'
-  - 'ttf-nerd-fonts'
 aur-packages:
   - 'qemu-full'
   - 'virt-manager'
@@ -90,6 +88,7 @@ commands:
   - 'sudo usermod -aG libvirt "$(whoami)"'
   - 'sudo localectl set-locale LANG=nl_NL.UTF-8'
   - 'sudo locale-gen'
+  - 'sudo pacman -Ssq nerd-fonts'
   - 'git clone https://github.com/PilkDrinker/PilkDots.git'
   - 'cd PilkDots'
   - 'cp .config ~/.config'
