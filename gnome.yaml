@@ -37,7 +37,6 @@ packages:
   - 'gvfs-nfs'
   - 'gvfs-smb'
   - 'loupe'
-  - 'malcontent'
   - 'nautilus'
   - 'orca'
   - 'power-profiles-daemon'
@@ -51,11 +50,12 @@ packages:
   - 'xdg-user-dirs-gtk'
   - 'cmatrix'
   - 'figlet'
-  - 'ranger'
 aur-packages:
   - 'linutil-bin'
   - 'qemu-full'
   - 'waydroid-image-gapps'
+  - 'quickemu'
+  - 'quickgui-bin'
 
 commands:
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
