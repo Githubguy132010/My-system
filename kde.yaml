@@ -33,6 +33,7 @@ packages:
   - 'xdg-user-dirs-gtk'
   - 'cmatrix'
   - 'figlet'
+
 aur-packages:
   - 'linutil-bin'
   - 'qemu-full'
@@ -41,8 +42,8 @@ aur-packages:
   - 'quickgui-bin'
 
 commands:
-  - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -[...]
-  - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop org.gno[...]
+  - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml"'
+  - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop}'
   - 'groupadd -f libvirt'
   - 'useradd -r -s /sbin/nologin libvirt-qemu 2>/dev/null || true'
   - 'usermod -aG kvm,libvirt libvirt-qemu'
