@@ -2,32 +2,49 @@ impl: 'https://github.com/blend-os/tracks/raw/main'
 track: 'blendos-base'
 
 packages:
-  - 'adw-gtk3'
-  - 'alacritty'
-  - 'baobab'
-  - 'blendos-wallpapers-git'
-  - 'flatpak'
+  # Core GNOME components
   - 'gdm'
-  - 'gnome-backgrounds'
-  - 'gnome-calculator'
-  - 'gnome-control-center'
-  - 'gnome-disk-utility'
-  - 'gnome-initial-setup'
-  - 'gnome-keyring'
-  - 'gnome-menus'
   - 'gnome-session'
   - 'gnome-settings-daemon'
   - 'gnome-shell'
+  - 'gnome-control-center'
+  - 'gnome-keyring'
+  - 'gnome-menus'
+  - 'power-profiles-daemon'
+  - 'xdg-desktop-portal-gnome'
+  
+  # GNOME Shell Extensions
+  - 'gnome-shell-extensions'
   - 'gnome-shell-extension-appindicator'
   - 'gnome-shell-extension-blur-my-shell'
   - 'gnome-shell-extension-dash-to-dock'
-  - 'gnome-shell-extensions'
+  
+  # GNOME Applications
+  - 'alacritty'
+  - 'baobab'
+  - 'gnome-calculator'
+  - 'gnome-disk-utility'
   - 'gnome-software'
   - 'gnome-system-monitor'
   - 'gnome-text-editor'
+  - 'loupe'
+  - 'nautilus'
+  - 'snapshot'
+  - 'tecla'
+  
+  # Setup and User Components
+  - 'gnome-initial-setup'
   - 'gnome-user-docs'
   - 'gnome-user-share'
-  - 'grilo-plugins'
+  - 'orca'
+  - 'xdg-user-dirs-gtk'
+  
+  # Theming and Visuals
+  - 'adw-gtk3'
+  - 'blendos-wallpapers-git'
+  - 'gnome-backgrounds'
+  
+  # File System and Media Support
   - 'gvfs'
   - 'gvfs-afc'
   - 'gvfs-goa'
@@ -36,21 +53,21 @@ packages:
   - 'gvfs-mtp'
   - 'gvfs-nfs'
   - 'gvfs-smb'
-  - 'loupe'
-  - 'nautilus'
-  - 'orca'
-  - 'power-profiles-daemon'
-  - 'rygel'
-  - 'snapshot'
-  - 'tecla'
+  - 'grilo-plugins'
   - 'tracker3-miners'
+  - 'rygel'
+  
+  # Virtualization and Container Support
   - 'virt-manager'
   - 'waydroid'
-  - 'xdg-desktop-portal-gnome'
-  - 'xdg-user-dirs-gtk'
+  - 'flatpak'
+  
+  # Additional Utilities
   - 'cmatrix'
   - 'figlet'
+
 aur-packages:
+  # Additional AUR Packages
   - 'linutil-bin'
   - 'qemu-full'
   - 'waydroid-image-gapps'
@@ -58,6 +75,7 @@ aur-packages:
   - 'quickgui-bin'
 
 commands:
+  # Cleanup and configuration commands
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
   - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop org.gnome.Shell.Extensions.desktop org.freedesktop.MalcontentControl.desktop}'
   - 'groupadd -f libvirt'
@@ -68,6 +86,7 @@ commands:
   - 'pacman --noconfirm -Rns cups'
 
 services:
+  # Services to enable
   - 'gdm'
   - 'libvirtd'
   - 'libvirt-storaged'
