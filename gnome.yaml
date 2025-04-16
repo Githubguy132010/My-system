@@ -73,7 +73,8 @@ aur-packages:
   - 'waydroid-image-gapps'
   - 'quickemu'
   - 'quickgui-bin'
-
+  - 'visual-studio-code-bin'
+  - 'google-chrme'
 commands:
   # Cleanup and configuration commands
   - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
