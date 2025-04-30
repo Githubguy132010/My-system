@@ -1,0 +1,77 @@
+impl: 'https://github.com/blend-os/tracks/raw/main'
+track: 'blendos-base'
+
+packages:
+  # Core KDE Plasma components
+  - 'sddm'
+  - 'plasma-session'
+  - 'plasma-settings'
+  - 'plasma-shell'
+  - 'systemsettings'
+  - 'kwallet-manager'
+  - 'powerdevil'
+  - 'xdg-desktop-portal-kde'
+
+  # KDE Plasma Addons and Widgets
+  - 'plasma-addons'
+  - 'plasma-widgets'
+
+  # KDE Applications
+  - 'konsole'
+  - 'partitionmanager'
+  - 'discover'
+  - 'plasma-systemmonitor'
+  - 'kate'
+  - 'gwenview'
+  - 'dolphin'
+  - 'kcalc'
+
+  # Setup and User Components
+  - 'plasma-welcome'
+  - 'kde-user-manager'
+  - 'kde-gtk-config' # For GTK theme integration
+
+  # Theming and Visuals
+  - 'breeze'
+  - 'plasma-workspace'
+  - 'kde-wallpapers'
+
+  # File System and Media Support
+  - 'kio-extras' # Provides various KIO slaves
+  - 'baloo' # File indexing and search
+  - 'baloo-widgets'
+  - 'phonon-qt5' # Multimedia framework
+  - 'phonon-qt5-vlc' # VLC backend for phonon
+
+  # Virtualization and Container Support
+  - 'virt-manager'
+  - 'waydroid'
+  - 'flatpak'
+
+  # Additional Utilities
+  - 'cmatrix'
+  - 'figlet'
+
+aur-packages:
+  # Additional AUR Packages (kept from gnome.yaml as they are not DE-specific)
+  - 'linutil-bin'
+  - 'qemu-full'
+  - 'waydroid-image-gapps'
+  - 'quickemu'
+  - 'quickgui-bin'
+  - 'visual-studio-code-bin'
+  - 'google-chrome'
+commands:
+  # Configuration commands (removed GNOME-specific cleanup)
+  - 'groupadd -f libvirt'
+  - 'useradd -r -s /sbin/nologin libvirt-qemu 2>/dev/null || true'
+  - 'usermod -aG kvm,libvirt libvirt-qemu'
+  - 'usermod -aG libvirt "$(whoami)"'
+  - 'locale-gen'
+  - 'pacman --noconfirm -Rns cups'
+
+services:
+  # Services to enable (replaced gdm with sddm)
+  - 'sddm'
+  - 'libvirtd'
+  - 'libvirt-storaged'
