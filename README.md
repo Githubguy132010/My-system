@@ -9,13 +9,13 @@ This is a collection of customized BlendOS tracks tailored to specific requireme
 Tracks in this folder include Waydroid support for Android app compatibility:
 - **KDE.yaml** - KDE Plasma desktop with Waydroid
 - **GNOME.yaml** - GNOME desktop with Waydroid
-- **cosmic.yaml** - COSMIC desktop with Waydroid
+- **COSMIC.yaml** - COSMIC desktop with Waydroid
 
 ### No-Waydroid Tracks (`/no-waydroid/`)
 Tracks in this folder exclude Waydroid for a lighter system:
 - **KDE.yaml** - KDE Plasma desktop without Waydroid
 - **GNOME.yaml** - GNOME desktop without Waydroid
-- **cosmic.yaml** - COSMIC desktop without Waydroid
+- **COSMIC.yaml** - COSMIC desktop without Waydroid
 
 ## Features
 
