@@ -1,0 +1,109 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for proper changelog
+
+      - name: Get latest commit message
+        id: commit_message
+        run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+        
+      - name: Get latest tag
+        id: get_latest_tag
+        run: |
+          # Fetch all tags
+          git fetch --tags
+          
+          # Get latest tag or use 1.0.0 if no tags exist
+          LATEST_TAG=$(git tag --sort=-v:refname | head -n 1)
+          if [ -z "$LATEST_TAG" ]; then
+            echo "version=1.0.0" >> $GITHUB_OUTPUT
+          else
+            # Remove v prefix if it exists
+            VERSION=${LATEST_TAG#v}
+            # Split version into parts
+            IFS='.' read -ra PARTS <<< "$VERSION"
+            # Increment patch version
+            PARTS[2]=$((PARTS[2] + 1))
+            # Join parts back together
+            NEW_VERSION="${PARTS[0]}.${PARTS[1]}.${PARTS[2]}"
+            echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.get_latest_tag.outputs.version }}
+          name: Release v${{ steps.get_latest_tag.outputs.version }}
+          body: |
+            ## 📝 Release Notes
+            
+            ${{ steps.commit_message.outputs.message }}
+            
+            ## 📋 How to Use These Tracks
+            
+            ### 🔧 Installation Instructions
+            
+            **Akshara** is BlendOS's configuration manager. To use these tracks with system.yaml:
+
+            #### Step 1: Edit System Configuration
+            
+            Open a terminal and run:
+            ```bash
+            sudo nano /system.yaml
+            ```
+
+            #### Step 2: Set Implementation URL
+            
+            Replace the implementation line in the file with one of these options:
+            
+            **For waydroid support:**
+            ```yaml
+            impl: https://github.com/Githubguy132010/My-system/main/waydroid
+            ```
+
+            **Without waydroid:**
+            ```yaml
+            impl: https://github.com/Githubguy132010/My-system/main/no-waydroid
+            ```
+            
+            #### Step 3: Choose Your Desktop Environment
+            
+            Set the track for your preferred desktop environment:
+            
+            **For GNOME:**
+            ```yaml
+            track: gnome
+            ```
+            **For KDE:**
+            ```yaml
+            track: KDE
+            ```
+            **For COSMIC:**
+            ```yaml
+            track: cosmic
+            ```
+            
+            #### Step 4: Apply Changes
+            
+            1. Save the file and exit the editor
+            2. Run the following command to apply the changes:
+               ```bash
+               sudo akshara update
+               ```
+            3. Reboot your system to apply the changes
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
