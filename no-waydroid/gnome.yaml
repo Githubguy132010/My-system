@@ -40,7 +40,6 @@ packages:
   - 'xdg-user-dirs-gtk'
   
   # Theming and Visuals
-  - 'adw-gtk3'
   - 'blendos-wallpapers-git'
   - 'gnome-backgrounds'
   
