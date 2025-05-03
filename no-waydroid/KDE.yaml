@@ -45,7 +45,6 @@ packages:
 
   # Virtualization and Container Support
   - 'virt-manager'
-  - 'waydroid'
   - 'flatpak'
 
   # Additional Utilities
@@ -56,7 +55,6 @@ aur-packages:
   # Additional AUR Packages (kept from gnome.yaml as they are not DE-specific)
   - 'linutil-bin'
   - 'qemu-full'
-  - 'waydroid-image-gapps'
   - 'quickemu'
   - 'quickgui-bin'
   - 'visual-studio-code-bin'

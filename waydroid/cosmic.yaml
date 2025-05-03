@@ -1,0 +1,85 @@
+impl: 'https://github.com/blend-os/tracks/raw/main'
+track: 'blendos-base'
+
+packages:
+  # Core COSMIC components
+  - 'cosmic-greeter'
+  - 'cosmic-session'
+  - 'cosmic-settings-daemon'
+  - 'cosmic-epoch'
+  - 'cosmic-settings'
+  - 'cosmic-credential-manager'
+  - 'cosmic-app-library'
+  - 'power-profiles-daemon'
+  - 'xdg-desktop-portal-cosmic'
+
+  # COSMIC Applications
+  - 'alacritty'
+  - 'cosmic-disk-usage'
+  - 'cosmic-calculator'
+  - 'cosmic-disk-utility'
+  - 'cosmic-store'
+  - 'cosmic-system-monitor'
+  - 'cosmic-text-editor'
+  - 'cosmic-image-viewer'
+  - 'cosmic-files'
+  - 'cosmic-screenshot'
+  - 'cosmic-terminal'
+
+  # Setup and User Components
+  - 'cosmic-setup'
+  - 'cosmic-user-docs'
+  - 'cosmic-user-share'
+  - 'orca'
+  - 'xdg-user-dirs-gtk'
+
+  # Theming and Visuals
+  - 'blendos-wallpapers-git'
+
+  # File System and Media Support
+  - 'gvfs'
+  - 'gvfs-afc'
+  - 'gvfs-goa'
+  - 'gvfs-google'
+  - 'gvfs-gphoto2'
+  - 'gvfs-mtp'
+  - 'gvfs-nfs'
+  - 'gvfs-smb'
+  - 'grilo-plugins'
+  - 'tracker3-miners'
+  - 'rygel'
+
+  # Virtualization and Container Support
+  - 'virt-manager'
+  - 'waydroid'
+  - 'flatpak'
+
+  # Additional Utilities
+  - 'cmatrix'
+  - 'figlet'
+
+aur-packages:
+  # Additional AUR Packages
+  - 'linutil-bin'
+  - 'qemu-full'
+  - 'waydroid-image-gapps'
+  - 'quickemu'
+  - 'quickgui-bin'
+  - 'visual-studio-code-bin'
+  - 'google-chrome'
+commands:
+  # Cleanup and configuration commands
+  - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.cosmic.Store.metainfo.xml" ! -name "org.cosmic.Store.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
+  - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop org.freedesktop.MalcontentControl.desktop}'
+  - 'groupadd -f libvirt'
+  - 'useradd -r -s /sbin/nologin libvirt-qemu 2>/dev/null || true'
+  - 'usermod -aG kvm,libvirt libvirt-qemu'
+  - 'usermod -aG libvirt "$(whoami)"'
+  - 'locale-gen'
+  - 'pacman --noconfirm -Rns cups'
+
+services:
+  # Services to enable
+  - 'cosmic-greeter'
+  - 'libvirtd'
+  - 'libvirt-storaged'

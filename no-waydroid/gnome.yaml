@@ -1,0 +1,91 @@
+impl: 'https://github.com/blend-os/tracks/raw/main'
+track: 'blendos-base'
+
+packages:
+  # Core GNOME components
+  - 'gdm'
+  - 'gnome-session'
+  - 'gnome-settings-daemon'
+  - 'gnome-shell'
+  - 'gnome-control-center'
+  - 'gnome-keyring'
+  - 'gnome-menus'
+  - 'power-profiles-daemon'
+  - 'xdg-desktop-portal-gnome'
+  
+  # GNOME Shell Extensions
+  - 'gnome-shell-extensions'
+  - 'gnome-shell-extension-appindicator'
+  - 'gnome-shell-extension-blur-my-shell'
+  - 'gnome-shell-extension-dash-to-dock'
+  
+  # GNOME Applications
+  - 'alacritty'
+  - 'baobab'
+  - 'gnome-calculator'
+  - 'gnome-disk-utility'
+  - 'gnome-software'
+  - 'gnome-system-monitor'
+  - 'gnome-text-editor'
+  - 'loupe'
+  - 'nautilus'
+  - 'snapshot'
+  - 'tecla'
+  
+  # Setup and User Components
+  - 'gnome-initial-setup'
+  - 'gnome-user-docs'
+  - 'gnome-user-share'
+  - 'orca'
+  - 'xdg-user-dirs-gtk'
+  
+  # Theming and Visuals
+  - 'adw-gtk3'
+  - 'blendos-wallpapers-git'
+  - 'gnome-backgrounds'
+  
+  # File System and Media Support
+  - 'gvfs'
+  - 'gvfs-afc'
+  - 'gvfs-goa'
+  - 'gvfs-google'
+  - 'gvfs-gphoto2'
+  - 'gvfs-mtp'
+  - 'gvfs-nfs'
+  - 'gvfs-smb'
+  - 'grilo-plugins'
+  - 'tracker3-miners'
+  - 'rygel'
+  
+  # Virtualization and Container Support
+  - 'virt-manager'
+  - 'flatpak'
+  
+  # Additional Utilities
+  - 'cmatrix'
+  - 'figlet'
+
+aur-packages:
+  # Additional AUR Packages
+  - 'linutil-bin'
+  - 'qemu-full'
+  - 'quickemu'
+  - 'quickgui-bin'
+  - 'visual-studio-code-bin'
+  - 'google-chrome'
+commands:
+  # Cleanup and configuration commands
+  - 'find /usr/share/metainfo ! -name "org.freedesktop.appstream.cli.metainfo.xml" ! -name "org.freedesktop.appstream.compose.metainfo.xml" ! -name "org.gnome.Software.Plugin.Flatpak.metainfo.xml" ! -name "org.gnome.Software.Plugin.Fwupd.metainfo.xml" -type f -exec rm -f {} +'
+  - 'rm -f /usr/share/applications/{stoken-gui.desktop,stoken-gui-small.desktop,qvidcap.desktop,qv4l2.desktop,bvnc.desktop,electron*.desktop,avahi-discover.desktop,bssh.desktop,linutil.desktop org.gnome.Shell.Extensions.desktop org.freedesktop.MalcontentControl.desktop}'
+  - 'groupadd -f libvirt'
+  - 'useradd -r -s /sbin/nologin libvirt-qemu 2>/dev/null || true'
+  - 'usermod -aG kvm,libvirt libvirt-qemu'
+  - 'usermod -aG libvirt "$(whoami)"'
+  - 'locale-gen'
+  - 'pacman --noconfirm -Rns cups'
+
+services:
+  # Services to enable
+  - 'gdm'
+  - 'libvirtd'
+  - 'libvirt-storaged'

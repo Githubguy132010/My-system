@@ -51,7 +51,6 @@ packages:
 
   # Virtualization and Container Support
   - 'virt-manager'
-  - 'waydroid'
   - 'flatpak'
 
   # Additional Utilities
@@ -62,7 +61,6 @@ aur-packages:
   # Additional AUR Packages
   - 'linutil-bin'
   - 'qemu-full'
-  - 'waydroid-image-gapps'
   - 'quickemu'
   - 'quickgui-bin'
   - 'visual-studio-code-bin'
